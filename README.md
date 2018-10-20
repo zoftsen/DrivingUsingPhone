@@ -20,4 +20,10 @@ Description:
 2. Get closer to the depth camera and pretend to speak on the phone. Press the space bar to detect if the system able to detect phone usage. A window with the detected image will pop up.
 3. Pressing space bar without speaking to phone will not detect
 4. As since this is a prototype, and less sample data is fed for training, the will be some lack of accuracy. 
-        
+
+
+Python Command to train the Network
+python3 -m scripts.retrain --output_graph=tf_files/retrained_graph.pb --output_labels=tf_files/retrained_labels.txt --image_dir=tf_files/driving_photos
+
+Python Command to run the example
+python3 -m scripts.label_image --graph=tf_files/retrained_graph.pb --labels=tf_files/retrained_labels.txt --input_layer=Mul --input_height=299 --input_width=299
